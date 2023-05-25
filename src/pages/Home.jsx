@@ -17,7 +17,13 @@ export default function Home() {
 
   const editTodo = (id, newTodo) => {
     var todosArray = [...todos] // Spread Operator permite copiar todos os atributos de um array ou obj pra um novo obj
-    todosArray.splice(id, 1, { text: newTodo, id: id }); // edita o valor
+
+    for (var i in todosArray){
+      if (todosArray[i].id == id){
+        todosArray[i].text = newTodo
+      }
+    }
+    
     setTodos(todosArray); // setas de novo na lista de tarefas
   };
 
